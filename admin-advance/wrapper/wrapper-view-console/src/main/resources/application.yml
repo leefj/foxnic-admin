@@ -1,0 +1,19 @@
+  
+server:
+  port: 1819
+
+spring:
+  application:
+    name: service-system
+    description: Foxnic Web System Service
+  thymeleaf:
+    prefix: classpath:/public/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+    cache: false
+
+logging:
+  config: classpath:logback-config.xml  

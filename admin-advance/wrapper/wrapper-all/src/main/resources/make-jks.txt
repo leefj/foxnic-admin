@@ -1,0 +1,5 @@
+执行命令,生成 JKS 文件
+keytool -genkey -alias foxnic-web -keyalg RSA -storetype JKS -keysize 2048 -validity 3650 -keypass fox-123456-nic -keystore /Users/fangjieli/Downloads/foxnic-video/jwt/demo.jks -storepass fox-123456-nic -dname "CN=(LeeFJ), OU=(com.foxnicweb), O=(com.foxnicweb), L=(ningbo), ST=(zhejiang), C=(china)"
+
+
+keytool -genkey -alias webfull -keyalg RSA -storetype JKS -keysize 2048 -validity 3650 -keypass webfull-123456 -keystore d:/webfull.jks -storepass webfull-123456 -dname "CN=(LeeFJ), OU=(com.leefj), O=(webfull), L=(ningbo), ST=(zhejiang), C=(china)"

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+    </parent>
+
+    <groupId>com.github.foxnic.admin</groupId>
+    <artifactId>advance-admin</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>Advance Admin</name>
+    <description>Admin With Full Features Of Foxnic-Web</description>
+
+    <modules>
+        <!-- 通用模块 -->
+        <module>./common/domain</module>
+        <module>./common/proxy</module>
+        <module>./common/framework</module>
+        <!-- 接口服务 -->
+        <module>./service/service-example</module>
+        <!-- 界面视图 -->
+        <module>./view/view-example</module>
+        <!-- 项目聚合 -->
+        <module>./wrapper/wrapper-all</module>
+        <module>./wrapper/wrapper-camunda</module>
+
+    </modules>
+    <properties>
+        <project.version>1.0.0</project.version>
+        <skipTests>true</skipTests>
+        <encoding>1.8</encoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+        <alibaba.cloud.version>2.2.5.RELEASE</alibaba.cloud.version>
+        <sentinel.version>1.8.0</sentinel.version>
+        <seata.version>1.3.0</seata.version>
+        <seata.cloud.version>2.2.0.RELEASE</seata.cloud.version>
+        <foxnic.version>1.7.0.RELEASE</foxnic.version>
+        <foxnic.web.version>1.7.0.RELEASE</foxnic.web.version>
+        <knife4j.version>3.0.2</knife4j.version>
+        <xmlbeans.version>4.0.0</xmlbeans.version>
+        <poi.version>4.1.2</poi.version>
+        <servlet.api.version>4.0.1</servlet.api.version>
+        <oshi.core.version>5.7.5</oshi.core.version>
+        <mysql.version>5.1.49</mysql.version>
+        <camunda.version>7.17.0</camunda.version>
+        <cangaroo.version>1.1.3.RELEASE</cangaroo.version>
+    </properties>
+    <dependencies/>
+    <build>
+        <defaultGoal>compile</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <configuration>
+                    <encoding>${encoding}</encoding>
+                    <aggregate>true</aggregate>
+                    <charset>${encoding}</charset>
+                    <docencoding>${encoding}</docencoding>
+                    <skip>${maven.javadoc.skip}</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>foxnic</id>
+            <name>Foxnic Repository</name>
+            <url>http://foxnicweb.com:9091/repository/maven-releases/</url>
+        </repository>
+    </repositories>
+</project>

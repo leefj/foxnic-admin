@@ -1,0 +1,51 @@
+
+settings:
+  enableMicroService: true
+  enableSwagger: true
+
+
+#源代码相关的部分
+source:
+  #DAO常量名
+  daoNameConst: org.github.foxnic.web.framework.dao.DBConfigs.PRIMARY_DAO
+  #系统常量包名
+  domainConstantsPackage: com.leefj.webfull.constants
+
+#使用不同的机器码对应到作者
+authors:
+  #指定机器码与对应的作者，机器码在代码生成时控制台输出，或main函数调用 Machine.getIdentity()
+  B15BDA59450483F9: 李方捷 , leefangjie@qq.com
+  B1894FFE47E36B09: 李方捷 , leefangjie@qq.com
+  D11C00DED5F5C932: 金杰 , maillank@qq.com
+
+
+compoments:
+  domain: /common/domain
+  proxy: /common/proxy
+
+
+
+#应用清单
+applications:
+  webfull-service-example:
+    # 是否为高级项目
+    advance: false,
+    # 如果使用 nacos 指定分组
+    nacosGroup: service
+    # 如果使用 nacos 指定 dataId
+    nacosDataId: service-example.yml
+    # service 的项目路径
+    serviceProjectPath: /service/service-example
+    # 包名
+    packageName: com.leefj.webfull.example
+    # 主数据源配置键
+    primaryDatasourceConfigKey: spring.datasource.druid.primary
+    # 微服务常量名
+    microServiceNameConst: WEBFULL_EXAMPLE
+    # 视图项目路径
+    viewProjectPath: /view/view-example
+    # 视图代码路径前缀
+    viewPrefixPath: public/business/webfull-example
+    # 聚合项目，用于读取配置
+    wrapperProjectPath:  /wrapper/wrapper-all
+

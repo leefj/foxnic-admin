@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.foxnic.example.webfull</groupId>
+        <artifactId>webfull</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../../pom.xml</relativePath>
+        <!-- lookup parent from repository -->
+    </parent>
+    <artifactId>webfull-generator</artifactId>
+    <name>webfull-web-generator</name>
+    <description>WebFull Generator</description>
+    <dependencies>
+        <!-- 通用基础模块 -->
+        <dependency>
+            <groupId>com.github.foxnic.web</groupId>
+            <artifactId>framework-boot</artifactId>
+            <version>${foxnic.web.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.foxnic.web</groupId>
+            <artifactId>framework-cloud</artifactId>
+            <version>${foxnic.web.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.foxnic</groupId>
+            <artifactId>foxnic-generator</artifactId>
+            <version>${foxnic.version}</version>
+        </dependency>
+        <!-- 当前项目基础模块 -->
+        <dependency>
+            <groupId>com.github.foxnic.example.webfull</groupId>
+            <artifactId>webfull-proxy</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.foxnic.example.webfull</groupId>
+            <artifactId>webfull-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.foxnic.example.webfull</groupId>
+            <artifactId>webfull-framework</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- 当前项目业务模块 -->
+        <dependency>
+            <groupId>com.github.foxnic.example.webfull</groupId>
+            <artifactId>webfull-service-example</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.foxnic.example.webfull</groupId>
+            <artifactId>webfull-view-example</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <defaultGoal>compile</defaultGoal>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+</project>

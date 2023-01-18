@@ -1,0 +1,74 @@
+server:
+  port: 1898
+ 
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: service-all
+    description: Foxnic Web Service All
+  servlet: 
+    multipart: 
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    druid:
+      primary:
+        encrypt:
+          enable: true
+          file:
+            windows: d:/foxnic/passwd.txt
+            mac: /Users/Shared/foxnic/passwd.txt
+            linux: /foxnic/passwd.txt
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ai+mCm8asbK9SNrQDk7ac29neidjdgHp2jFU7HYbZZOmvbR4OKNXb877AJzdYToBGLgN+etaRMM4wzovFLMULMH6brIo3zgsyub026w4Il4Oqg9jzyYsLaa6LNyznmYm5kKoS17K9XHBX8e0lDuik9pcc/DfdjaUkhm0MmOALUM86dHiyURHUP5hfQ4otf/kE9gVP+GO1G7fUdc4JBLDYylfBzmp9SNKQcTLQ/5AkWcnbm89+5pAz4JNnCJILF0B
+        username: tD5wkJAfnCt04A+Y+QN5GA==
+        password: ODGx5F84xpWJgfRFnzAaYhViHJqrTO3uxxDZ2lRlZNk=
+        min-idle: 1
+        initial-size: 2
+        max-active: 64
+        max-wait: 60000
+        printSQL: true
+
+
+security:
+  # 模式：session / jwt
+  mode: jwt 
+  # 配置无需鉴权可以访问的地址
+  ignored-urls: /error
+  # mode=jwt 时配置的 jwt 选项
+  jwt:
+    key-location: felordcn.jks
+    key-alias: felordcn
+    key-pass: 123456
+    # 缓存类型  local/remote/both
+    cache-type: local
+    iss: felord.cn
+    sub: all
+    access-expire-seconds: 20
+    refresh-expire-seconds: 30
+
+
+logging:
+  config: classpath:logback-config.xml  
+
+snowflake: 
+  datacenterId: 1  
+  workerId: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  
+
+knife4j: 
+  enable: true
+  title: ${spring.application.name}
+  description: ${spring.application.description}
+  version: 1.0        
+
+upload: 
+  windows: c:/upload
+  mac: /Users/LeeFJ/git/tailoring/uploads
+  linux: /tailoring/uploads         

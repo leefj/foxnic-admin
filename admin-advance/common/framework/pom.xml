@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.github.foxnic.example.webfull</groupId>
+        <artifactId>webfull</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../../pom.xml</relativePath>
+        <!-- lookup parent from repository -->
+    </parent>
+    <artifactId>webfull-framework</artifactId>
+    <name>webfull-framework</name>
+    <description>WebFull Framework</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.foxnic.web</groupId>
+            <artifactId>framework-boot</artifactId>
+            <version>${foxnic.web.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.foxnic.web</groupId>
+            <artifactId>proxy</artifactId>
+            <version>${foxnic.web.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.foxnic.example.webfull</groupId>
+            <artifactId>webfull-proxy</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>
